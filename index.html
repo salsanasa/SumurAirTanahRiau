@@ -34,7 +34,7 @@
         <title></title>
     </head>
     <body>
-        <div id="map">
+                <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
@@ -70,7 +70,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-0.6446460132745421,98.62916607900307],[2.566029384506744,105.07474838700172]]);
+        }).fitBounds([[-0.8309257651269475,98.51028022111349],[2.37974963265434,104.95586252911214]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -457,7 +457,7 @@
                 case 'Berizin':
                     return {
                 pane: 'pane_SumurAirTanah_2',
-                radius: 10.0,
+                radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -466,14 +466,30 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(33,181,25,1.0)',
+                fillColor: 'rgba(55,206,49,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Izin Kedaluwarsa':
+                    return {
+                pane: 'pane_SumurAirTanah_2',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,246,41,1.0)',
                 interactive: true,
             }
                     break;
                 case 'Tidak Berizin':
                     return {
                 pane: 'pane_SumurAirTanah_2',
-                radius: 10.0,
+                radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -482,7 +498,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(224,49,40,1.0)',
+                fillColor: 'rgba(222,22,4,1.0)',
                 interactive: true,
             }
                     break;
@@ -509,7 +525,7 @@
         bounds_group.addLayer(layer_SumurAirTanah_2);
         map.addLayer(layer_SumurAirTanah_2);
         var overlaysTree = [
-            {label: 'Sumur Air Tanah<br /><table><tr><td style="text-align: center;"><img src="legend/SumurAirTanah_2_Berizin0.png" /></td><td>Berizin</td></tr><tr><td style="text-align: center;"><img src="legend/SumurAirTanah_2_TidakBerizin1.png" /></td><td>Tidak Berizin</td></tr></table>', layer: layer_SumurAirTanah_2},
+            {label: 'Sumur Air Tanah<br /><table><tr><td style="text-align: center;"><img src="legend/SumurAirTanah_2_Berizin0.png" /></td><td>Berizin</td></tr><tr><td style="text-align: center;"><img src="legend/SumurAirTanah_2_IzinKedaluwarsa1.png" /></td><td>Izin Kedaluwarsa</td></tr><tr><td style="text-align: center;"><img src="legend/SumurAirTanah_2_TidakBerizin2.png" /></td><td>Tidak Berizin</td></tr></table>', layer: layer_SumurAirTanah_2},
             {label: 'PROVINSI_RIAU<br /><table><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_BENGKALIS0.png" /></td><td>BENGKALIS</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_DUMAI1.png" /></td><td>DUMAI</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_INDRAGIRIHILIR2.png" /></td><td>INDRAGIRI HILIR</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_INDRAGIRIHULU3.png" /></td><td>INDRAGIRI HULU</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_KAMPAR4.png" /></td><td>KAMPAR</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_KEPULAUANMERANTI5.png" /></td><td>KEPULAUAN MERANTI</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_KUANTANSINGINGI6.png" /></td><td>KUANTAN SINGINGI</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_PEKANBARU7.png" /></td><td>PEKANBARU</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_PELALAWAN8.png" /></td><td>PELALAWAN</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_ROKANHILIR9.png" /></td><td>ROKAN HILIR</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_ROKANHULU10.png" /></td><td>ROKAN HULU</td></tr><tr><td style="text-align: center;"><img src="legend/PROVINSI_RIAU_1_SIAK11.png" /></td><td>SIAK</td></tr></table>', layer: layer_PROVINSI_RIAU_1},
             {label: "Google Terrain", layer: layer_GoogleTerrain_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
